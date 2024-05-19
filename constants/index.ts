@@ -24,6 +24,4 @@ export const SidebarLinks = [
     route: "/personal-room",
     imgUrl: "/icons/add-personal.svg",
   },
- 
-
 ];
