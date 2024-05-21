@@ -1,3 +1,4 @@
+"use client";
 import {
   Sheet,
   SheetClose,
@@ -15,6 +16,7 @@ import { usePathname } from "next/navigation";
 
 const MobileNav = () => {
   const pathname = usePathname();
+
   return (
     <section className="w-full max-w-[264px]">
       <Sheet>
@@ -44,30 +46,29 @@ const MobileNav = () => {
             <SheetClose asChild>
               <section className="flex h-full flex-col gap-6 pt-16 text-white">
                 {SidebarLinks.map((links) => {
-                  const isActive =
-                    pathname === links.route ||
-                    pathname.startsWith(links.route);
+                  const isActive = pathname === links.route;
+
                   return (
-                    <Link
-                      href={links.route}
-                      key={links.lable}
-                      className={cn(
-                        "flex gap-4 items-center p-4 rounded-lg justify-start",
-                        {
-                          "bg-blue-1": isActive,
-                        }
-                      )}
-                    >
-                      <Image
-                        src={links.imgUrl}
-                        alt={links.lable}
-                        width={24}
-                        height={24}
-                      />
-                      <p className="text-lg font-semibold max-lg:hidden">
-                        {links.lable}
-                      </p>
-                    </Link>
+                    <SheetClose asChild key={links.route}>
+                      <Link
+                        href={links.route}
+                        key={links.lable}
+                        className={cn(
+                          "flex gap-4 items-center p-4 rounded-lg w-full max-w-60",
+                          {
+                            "bg-blue-1": isActive,
+                          }
+                        )}
+                      >
+                        <Image
+                          src={links.imgUrl}
+                          alt={links.lable}
+                          width={20}
+                          height={20}
+                        />
+                        <p className="font-semibold ">{links.lable}</p>
+                      </Link>
+                    </SheetClose>
                   );
                 })}
               </section>
