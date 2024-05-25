@@ -58,6 +58,9 @@
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
+.cl-providerIcon__apple {
+  filter: invert(1);
+}
 
 .cl-logoBox {
   height: 40px;
