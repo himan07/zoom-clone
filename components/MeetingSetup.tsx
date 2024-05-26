@@ -10,7 +10,6 @@ import {
 import { Button } from "./ui/button";
 import Alert from "./Alert";
 
-
 const MeetingSetup = ({
   setIsSetupComplete,
 }: {
@@ -41,7 +40,7 @@ const MeetingSetup = ({
       call?.camera.enable();
       call?.microphone.enable();
     }
-  }, [isMicCamToggled, call?.camera, call.microphone]);
+  }, [isMicCamToggled, call?.camera, call?.microphone]);
 
   if (callTimeNotArrived)
     return (
@@ -75,10 +74,9 @@ const MeetingSetup = ({
       </div>
       <Button
         className="rounded-md bg-green-500 px-4 py-2.5"
-        onClick={() => {
-          call.join();
-
-          setIsSetupComplete(true);
+        onClick={()=>{
+          call?.join();
+          setIsSetupComplete(true)
         }}
       >
         Join meeting
