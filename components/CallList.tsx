@@ -15,6 +15,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const router = useRouter();
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
+
+console.log("callRecordings", callRecordings)
+
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
   const toast = useToast();
 
@@ -52,8 +55,8 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         );
 
         const recordings = callData
-          .filter((call) => call.recordings.length > 0)
-          .flatMap((call) => call.recordings);
+          .filter((call) => call?.recordings?.length > 0)
+          .flatMap((call) => call?.recordings);
 
         setRecordings(recordings);
       } catch (error) {
