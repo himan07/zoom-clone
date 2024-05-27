@@ -16,7 +16,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
 
-console.log("callRecordings", callRecordings)
+  console.log("callRecordings", callRecordings);
 
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
   const toast = useToast();

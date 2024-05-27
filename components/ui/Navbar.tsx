@@ -16,7 +16,7 @@ const Navbar = () => {
           className="max-sm:size-10"
         />
         <p className="text-[26x] font-extrabold text-white max-sm:hidden">
-          Zoom
+          UniteMeet
         </p>
       </Link>
       <div className="flex flex-between gap-5">
